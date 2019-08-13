@@ -1,0 +1,23 @@
+{
+  "name": "tms_backend",
+  "version": "0.0.1",
+  "description": "TMS Back End",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasirubhagya/TMS_Backend.git"
+  },
+  "author": "yasiru bhagya",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yasirubhagya/TMS_Backend/issues"
+  },
+  "homepage": "https://github.com/yasirubhagya/TMS_Backend#readme",
+  "dependencies": {
+    "mongodb": "^3.3.0",
+    "mqtt": "^3.0.0"
+  }
+}
