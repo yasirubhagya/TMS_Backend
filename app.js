@@ -18,7 +18,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
     }); */
 
 var mqtt = require('mqtt');
-var mqttclient = mqtt.connect('mqtt://postman.cloudmqtt.com:13057', { username: 'guagtchv', password: '7x4D_P5Hjiet', clientId: 'sc01', clean: false });
+var mqttclient = mqtt.connect('mqtt://localhost:1883', { username: 'guagtchv', password: '7x4D_P5Hjiet', clientId: 'sc01', clean: false });
 
 mqttclient.on('connect', function (connack) {
     if (connack.sessionPresent) {
