@@ -16,7 +16,7 @@
     .catch(err => {
         console.log(err);
     }); */
-const mongoose = require('mongoose');
+/*const mongoose = require('mongoose');
 const gpsImuData = require('./gpsImuModel');
 mongoose.connect('mongodb+srv://savy:O5Y0j2Ml4ZzEbhJ4@cluster0-bsqiz.mongodb.net/savyDB?retryWrites=true&w=majority',
     { useNewUrlParser: true }
@@ -36,6 +36,8 @@ mqttclient.on('connect', function (connack) {
                 [`savyMqtt/trackers/${client_Id}/data`]: { qos: 1 },
                 [`savyMqtt/trackers/${client_Id}/usd/result`]: { qos: 1 },
                 [`savyMqtt/trackers/${client_Id}/siminfo/result`]: { qos: 1 },
+                [`savyMqtt/trackers/${client_Id}/pull`]: { qos: 1 },
+                
             }
             , function (err) {
                 if (!err) {
@@ -55,6 +57,7 @@ mqttclient.on('error', (err) => {
 mqttclient.on('message', function (topic, message) {
     // message is Buffer
     //mqttclient.end()
+    console.log(message);
     if (topic === `savyMqtt/trackers/${client_Id}/data`) {
             
         let m =JSON.parse(message);
@@ -85,7 +88,17 @@ mqttclient.on('message', function (topic, message) {
     }
 
 });
-
+let i=0;
 setInterval(() => {
-    mqttclient.publish(`savyMqtt/trackers/${client_Id}/pull`, "pull");
-}, 5000)
+    mqttclient.publish(`savyMqtt/trackers/${client_Id}/pull`,"num"+ i++);
+},10)*/
+
+var net = require('net');
+
+var server = net.createServer(function(socket) {
+	socket.write('Echo server\r\n');
+	socket.pipe(socket);
+});
+server.listen(process.env.PORT || 3000,()=>{
+    console.log("Listening");
+});
